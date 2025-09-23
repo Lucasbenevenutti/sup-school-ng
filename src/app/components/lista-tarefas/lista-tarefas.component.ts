@@ -20,12 +20,6 @@ export class ListaTarefasComponent {
 
   apagar(tarefasParaApagar: string): void {
     let indiceParaApagar = this.tarefas.indexOf(tarefasParaApagar);
-    console.log('Tarefa:', tarefasParaApagar);
-    console.log('Índice encontrado:', indiceParaApagar);
-
-
     this.tarefas.splice(indiceParaApagar, 1);
-
-
   }
 }

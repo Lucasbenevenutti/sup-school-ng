@@ -21,6 +21,6 @@ export class ListaPessoasComponent {
 
   apagar(pessoasParaApagar: string): void {
     let indiceParaApagar = this.pessoas.indexOf(pessoasParaApagar);
-    this.pessoas.splice(indiceParaApagar);
+    this.pessoas.splice(indiceParaApagar, 1);
   }
 }
