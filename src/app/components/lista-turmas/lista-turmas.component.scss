@@ -1,0 +1,74 @@
+/* ===== Tema Dark Purple ===== */
+:host {
+    display: block;
+    background-color: #1a1528; /* Roxo bem escuro */
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #e5e5f7;
+  }
+  
+  /* Botão de cadastro */
+  .botao-cadastro {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-cadastrar {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #6d28d9; /* Roxo vibrante */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-cadastrar:hover {
+    background: #9333ea; /* Roxo mais claro no hover */
+  }
+  
+  /* Estilo da tabela */
+  .tabela-turmas {
+    width: 100%;
+    border-collapse: collapse;
+    background: #2d1b4e; /* Roxo médio */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 1rem;
+  }
+  
+  .tabela-turmas thead {
+    background: #4c1d95; /* Roxo forte */
+  }
+  
+  .tabela-turmas th {
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: #c4b5fd;
+  }
+  
+  .tabela-turmas tbody tr {
+    transition: background 0.2s ease;
+  }
+  
+  .tabela-turmas tbody tr:nth-child(even) {
+    background: #372356;
+  }
+  
+  .tabela-turmas tbody tr:hover {
+    background: #5b21b6; /* Destaque ao passar o mouse */
+  }
+  
+  .tabela-turmas td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+    color: #e9d5ff;
+  }
+  
