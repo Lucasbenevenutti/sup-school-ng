@@ -1,0 +1,71 @@
+/* ===== Dark Purple Theme - Lista de Professores ===== */
+:host {
+    display: block;
+    background-color: #1a1528;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #e5e5f7;
+    overflow-x: auto;
+  }
+  
+  /* Botão de cadastro */
+  .botao-cadastro {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-cadastrar {
+    padding: 0.5rem 1rem;
+    background-color: #6d28d9;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-cadastrar:hover {
+    background-color: #9333ea;
+  }
+  
+  /* Tabela */
+  .tabela-professores {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2d1b4e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    min-width: 800px; /* Garante largura mínima em telas pequenas */
+  }
+  
+  .tabela-professores thead {
+    background-color: #4c1d95;
+  }
+  
+  .tabela-professores th {
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.95rem;
+    color: #c4b5fd;
+    white-space: nowrap;
+  }
+  
+  .tabela-professores td {
+    padding: 1rem;
+    color: #f0f0ff;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+  }
+  
+  .tabela-professores tbody tr:nth-child(even) {
+    background-color: #372356;
+  }
+  
+  .tabela-professores tbody tr:hover {
+    background-color: #5b21b6;
+  }
+  

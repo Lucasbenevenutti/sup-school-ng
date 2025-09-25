@@ -1,0 +1,82 @@
+/* ===== Dark Purple Theme - Formulário de Professor ===== */
+:host {
+    display: block;
+    background-color: #1a1528; /* Roxo escuro */
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #e5e5f7;
+  }
+  
+  /* Container */
+  .formulario-cadastro {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #2d1b4e; /* Roxo médio */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Título */
+  .formulario-cadastro h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #c4b5fd; /* Roxo claro */
+  }
+  
+  /* Campos */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #c4b5fd;
+  }
+  
+  .form-group input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #372356;
+    color: #f9f9ff;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input::placeholder {
+    color: #aaa1c8;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #7c3aed;
+    border: 1px solid #a78bfa;
+  }
+  
+  /* Botão */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .form-actions button {
+    padding: 0.75rem 1.5rem;
+    background-color: #6d28d9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .form-actions button:hover {
+    background-color: #9333ea;
+  }
+  
