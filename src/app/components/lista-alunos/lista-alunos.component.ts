@@ -20,7 +20,7 @@ interface Aluno {
 })
 
 export class ListaAlunosComponent {
-  
+
   // Propriedades
   alunos: Aluno[];
 
@@ -43,7 +43,7 @@ export class ListaAlunosComponent {
     this.alunos.splice(indiceParaApagar, 1);
     this.salvarLocalStorage();
   }
-  
+
   salvarLocalStorage(): void {
     let alunosString = JSON.stringify(this.alunos);
 

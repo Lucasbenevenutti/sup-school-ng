@@ -9,6 +9,8 @@ import { ListaAlunosComponent } from './components/lista-alunos/lista-alunos.com
 import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
 import { ListaTurmasComponent } from './components/lista-turmas/lista-turmas.component';
 import { CadastroTurmaComponent } from './components/cadastro-turma/cadastro-turma.component';
+import { ListaMateriasComponent } from './components/lista-materias/lista-materias.component';
+import { CadastroMateriaComponent } from './components/cadastro-materia/cadastro-materia.component';
 
 export const routes: Routes = [
     {path: "calculadora", component: CalculadoraComponent},
@@ -20,5 +22,7 @@ export const routes: Routes = [
     {path: "alunos", component: ListaAlunosComponent},
     {path: "alunos/cadastro", component: CadastroAlunoComponent},
     {path: "turmas", component: ListaTurmasComponent},
-    {path: "turmas/cadastro", component: CadastroTurmaComponent}
+    {path: "turmas/cadastro", component: CadastroTurmaComponent},
+    {path: "materias", component: ListaMateriasComponent},
+    {path: "materias/cadastro", component: CadastroMateriaComponent}
 ];
