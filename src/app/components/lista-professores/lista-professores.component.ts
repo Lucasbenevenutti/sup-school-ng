@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 interface Professor {
+  id: string,
   nome: string,
   cpf: string,
   dataNascimento: string,
@@ -22,7 +23,7 @@ export class ListaProfessoresComponent {
 
   professores: Professor[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.professores = this.carregarProfessoresLocal();
   }
 
@@ -40,5 +41,16 @@ export class ListaProfessoresComponent {
 
     let professor: Professor[] = JSON.parse(professorLocal);
     return professor;
+  }
+
+  apagar(professor: Professor): void {
+    let indiceParaApagar = this.professores.indexOf(professor);
+    this.professores.splice(indiceParaApagar, 1);
+    this.salvarLocal();
+  }
+
+  editar(professor: Professor): void {
+    this.router.navigate([`/professores/editar/${professor.id}`])
+
   }
 }

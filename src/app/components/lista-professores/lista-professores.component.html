@@ -13,6 +13,7 @@
         <th>Nome Fantasia</th>
         <th>Valor Hora</th>
         <th>Celular</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,10 @@
           <td>{{ professor.nomeFantasia }}</td>
           <td>{{ professor.valorHora }}</td>
           <td>{{ professor.celular }}</td>
+          <td>
+            <button (click)="editar(professor)">Editar</button>
+            <button (click)="apagar(professor)">Apagar</button>
+          </td>
         </tr>
       }
     </tbody>
