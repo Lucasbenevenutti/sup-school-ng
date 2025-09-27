@@ -51,6 +51,5 @@ export class ListaProfessoresComponent {
 
   editar(professor: Professor): void {
     this.router.navigate([`/professores/editar/${professor.id}`])
-
   }
 }

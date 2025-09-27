@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 interface Turma {
+  id: string,
   nome: string;
   sigla: string;
 }
@@ -16,26 +17,61 @@ interface Turma {
 
 export class CadastroTurmaComponent {
 
-   turmas: Turma[];
+  turmas: Turma[];
 
   nomeTurma: string = "";
   siglaTurma: string = "";
 
-  constructor(private router: Router) {
+  idEditar?: string;
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {
     this.turmas = this.carregarTurmaLocalStorage();
+    let idParaEditar = this.activatedRoute.snapshot.paramMap.get("id");
+    if( idParaEditar !== null) {
+      this.idEditar = idParaEditar.toString();
+      
+      this.preencherCamposParaEditar();
+    }
+  }
+
+  preencherCamposParaEditar(): void {
+    let turma = this.turmas.filter(turma => turma.id === this.idEditar)[0]
+    this.nomeTurma = turma.nome;
+    this.siglaTurma = turma.sigla;
   }
 
   salvar(): void {
 
+    if (this.idEditar === undefined) {
+      this.cadastrarTurma();
+    } else {
+      this.editarTurma();
+    }
+
+    this.salvarLocalStorage();
+    this.router.navigate(["/turmas"]);
+  }
+
+  editarTurma(): void {
+    let indiceLista = this.turmas.findIndex(turma => turma.id === this.idEditar);
+    this.turmas[indiceLista].nome = this.nomeTurma;
+    this.turmas[indiceLista].sigla = this.siglaTurma;
+  }
+
+  cadastrarTurma(): void {
+    
     let turma: Turma = {
-      nome:   this.nomeTurma,
-      sigla:  this.siglaTurma,
+      id: crypto.randomUUID(),
+      nome: this.nomeTurma,
+      sigla: this.siglaTurma,
     }
 
     this.turmas.push(turma);
     this.salvarLocalStorage();
     this.router.navigate(["/turmas"]);
-
   }
 
   salvarLocalStorage(): void {
@@ -46,7 +82,7 @@ export class CadastroTurmaComponent {
 
   carregarTurmaLocalStorage(): Turma[] {
     let turmasLocalStorage = localStorage.getItem("turmas");
-    if(turmasLocalStorage === null) {
+    if (turmasLocalStorage === null) {
       return [];
     }
 

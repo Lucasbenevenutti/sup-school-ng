@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 interface Turma {
+  id: string,
   nome: string;
   sigla: string;
 }
@@ -17,7 +18,7 @@ export class ListaTurmasComponent {
 
   turmas: Turma[];
 
-  constructor() {
+  constructor(private  router: Router) {
     this.turmas = this.carregarTurmaLocalStorage()
   }
 
@@ -35,5 +36,15 @@ export class ListaTurmasComponent {
     let turmasEnviarLocal = JSON.stringify(this.turmas);
 
     localStorage.setItem("turmas", turmasEnviarLocal);
+  }
+
+  apagar(turma: Turma): void {
+    let indiceParaApagar = this.turmas.indexOf(turma);
+    this.turmas.splice(indiceParaApagar, 1);
+    this.salvarLocalStorage();
+  }
+
+  editar(turma: Turma): void {
+    this.router.navigate([`/turmas/editar/${turma.id}`])
   }
 }
