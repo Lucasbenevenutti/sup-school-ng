@@ -13,3 +13,8 @@ Response => é o retorno do back-end (dados consultados de uma tabela)
 export interface CategoriaCadastroRequest{
     nome: string;
 }
+
+export interface CategoriaEditarRequest{
+    nome: string;
+}
+
