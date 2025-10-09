@@ -24,7 +24,8 @@ export class Navbar {
         items: [
           {
             label: 'Autores',
-            icon: 'pi pi-users'
+            icon: 'pi pi-users',
+            routerLink: "autores"
           },
           {
             label: 'Categorias',
