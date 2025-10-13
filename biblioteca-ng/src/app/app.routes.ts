@@ -7,6 +7,8 @@ import { AutorCreate } from './pages/autores/create/create';
 import { AutorEdit } from './pages/autores/edit/edit';
 import { LivroCreate } from './pages/livros/create';
 import { LivroList } from './pages/livros/list';
+import { UsuarioList } from './pages/usuarios/list';
+import { UsuarioCreate } from './pages/usuarios/create';
 
 export const routes: Routes = [
     {path: "categorias", component: CategoriaList },
@@ -17,5 +19,7 @@ export const routes: Routes = [
     {path: "autores/editar/:id", component: AutorEdit},
     { path: "livros", component: LivroList },
     { path: "livros/cadastrar", component: LivroCreate },
+    { path: "usuarios", component: UsuarioList},
+    { path: "usuarios/cadastrar", component: UsuarioCreate}
     
 ];
