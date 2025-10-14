@@ -12,7 +12,7 @@ export class LivroService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(titulo: string | null): Observable<LivroResponse[]> {
+  getAll(titulo: string | null = ""): Observable<LivroResponse[]> {
     let params = new HttpParams();
     if (titulo) {
       params = params.set('titulo', titulo.trim());

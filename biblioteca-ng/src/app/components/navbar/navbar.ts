@@ -42,6 +42,11 @@ export class Navbar {
             icon: 'pi pi-user',
             routerLink: "usuarios"
           },
+          {
+            label: "Emprestimos",
+            icon: "pi pi-shopping-bag",
+            routerLink: "emprestimos"
+          }
         ]
       },
     ]
