@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+  import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DatePickerModule } from 'primeng/datepicker';
@@ -10,6 +10,11 @@ import { LivroResponse } from '../../models/livro.dto';
 import { UsuarioResponse } from '../../models/usuario.dto';
 import { LivroService } from '../../services/livro.service';
 import { UsuarioService } from '../../services/usuario.service';
+import { Router } from '@angular/router';
+
+interface Status {
+  nome: string;
+}
 
 @Component({
   selector: 'app-create',
@@ -52,15 +57,32 @@ import { UsuarioService } from '../../services/usuario.service';
         class="w-full md:w-56"
         appendTo="body"/>
   </div>
-
+  
 </div>
 
-<div class="flex w-full mw-full justify-content-evenly gap-2 mb-2 p-3">
-  <div class="flex-grow-1">
-    <label for="campo-ano-publicacao">Ano Publicação <span class="text-red-500">*</span></label>
-    <p-datepicker [(ngModel)]="form.dataEmprestimo" dateFormat="dd.mm.yy" />
+<div class="flex w-full mw-full gap-2 mb-2 p-3">
+  <div class="flex flex-column ">
+    <label for="campo-data-emprestimo">Dada de empréstimo <span class="text-red-500">*</span></label>
+    <p-datepicker [(ngModel)]="form.dataEmprestimo" id="campo-data-emprestimo" dateFormat="dd.mm.yy" />
+  </div>
+
+  <div class="flex flex-column">
+    <label for="campo-data-devolucao">Dada de devolução <span class="text-red-500">*</span></label>
+    <p-datepicker [(ngModel)]="form.dataDevolucao" id="campo-data-devolucao" dateFormat="dd.mm.yy" />
+
   </div>
 </div>
+
+<div class="card flex justify-center">
+    <p-select [options]="statusOpcoes" optionValue="nome" [(ngModel)]="form.status" optionLabel="nome" placeholder="Selecione o status" class="w-full md:w-56" />
+</div>
+
+    <div class="flex justify-content-end mt-2">
+        <p-button label="Salvar" (click)="salvar()" icon="pi pi-save" />
+    </div>
+
+
+
 
   `,
   styles: ``
@@ -71,19 +93,24 @@ export class EmprestimoCreate {
 
   livros: LivroResponse[] | undefined;
   usuarios: UsuarioResponse[] | undefined;
+  statusOpcoes: Status[] =[
+    {nome: "Em andamento"},
+    {nome: "Devolvido"}
+  ]
 
 
   constructor(
     private emprestimoService: EmprestimoService,
     private livroService: LivroService,
     private usuarioService: UsuarioService,
+    private router: Router,
   )
   {
     this.form = {
-      livroId: 4,
-      usuarioId: 5,
-      dataEmprestimo: new Date ("1998-01-01"),
-      dataDevolucao: new Date ("1998-01-01"),
+      livroId: null,
+      usuarioId: null,
+      dataEmprestimo: "",
+      dataDevolucao: "",
       status: "",
     }
   }
@@ -113,7 +140,13 @@ export class EmprestimoCreate {
     })
   }
 
-
-
-  salvar() {}
+  salvar() {
+    this.emprestimoService.create(this.form).subscribe({
+      next: _ => this.router.navigate(["/emprestimos"]),
+      error: erro => {
+        alert("Não foi possivel cadastrar o emprestimo");
+        console.error(erro);
+      }
+    })
+  }
 }

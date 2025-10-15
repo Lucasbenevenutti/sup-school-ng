@@ -25,18 +25,16 @@ import { RouterLink } from '@angular/router';
             <th>Data da devolução</th>
         </tr>
     </ng-template>
-    <ng-template #body let-emprestimos>
+    <ng-template #body let-emprestimo>
         <tr>
            
-            <td>{{ emprestimos.id }}</td>
-            <td>{{ emprestimos.status }}</td>
-            <td>{{ emprestimos.livroId }}</td>
-            <td>{{ emprestimos.usuarioId }}</td>
-            <td>{{ emprestimos.dataEmprestimo }}</td>
-            <td>{{ emprestimos.dataDevolucao }}</td>
-            <td class="flex gap-2">
+            <td>{{ emprestimo.id }}</td>
+            <td>{{ emprestimo.status }}</td>
+            <td>{{ emprestimo.livro.titulo }}</td>
+            <td>{{ emprestimo.usuario.nome }}</td>
+            <td>{{ emprestimo.dataEmprestimo }}</td>
+            <td>{{ emprestimo.dataDevolucao }}</td>
 
-            </td>
         </tr>
     </ng-template>
 </p-table>

@@ -1,15 +1,15 @@
 export interface EmprestimoCadastroRequest {
     livroId: number | null;
     usuarioId: number | null;
-    dataEmprestimo: Date | null
-    dataDevolucao: Date | null;
+    dataEmprestimo: string | null
+    dataDevolucao: string | null;
     status: string;
 }
 
 export interface EmprestimoResponse {
     id: string;
-    livroId: EmprestimoLivroResponse;
-    usuarioId: EmprestimoUsuarioResponse;
+    livro: EmprestimoLivroResponse;
+    usuario: EmprestimoUsuarioResponse;
     dataEmprestimo: string;
     dataDevolucao: string;
     status: string;
